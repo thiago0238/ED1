@@ -1,0 +1,42 @@
+#include "mainwindow.h"
+#include "ui_mainwindow.h"
+#include <ordena.h>
+MainWindow::MainWindow(QWidget *parent):
+    QMainWindow(parent),
+    ui(new Ui::MainWindow)
+{
+    ui->setupUi(this);
+
+}
+
+MainWindow::~MainWindow()
+{
+    delete ui;
+}
+
+
+
+
+
+void MainWindow::on_pushButtonGerar_clicked()
+{
+    int tamanho = ui->lineEditTamanhoVetor->text().toInt();
+
+    QString saida = "";
+    QString saida2 = "";
+
+    taM::Ordena teste(tamanho);
+
+   saida += teste.getVetorDesordenado();
+    //saida2 +=  Ordena(tamanho).acessar());
+
+    //saida2 += ("  Quanti: ")+teste.mostrarQuantidadeDeElementos();
+    saida += teste.getVetorDesordenado();
+    //saida2 += teste.mostrarFila();
+
+    ui->lineEditDesordenado->setText(saida);
+    //ui->lineEditOrdenado->setText(saida2);
+
+
+}
+
